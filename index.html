@@ -31,7 +31,7 @@ body{
 .hidden{display:none;}
 .font-love{font-family:'Dancing Script',cursive;}
 
-/* Chocolate animation */
+/* Floating chocolates */
 .choco{
     position:absolute;
     font-size:32px;
@@ -54,6 +54,24 @@ body{
     cursor:pointer;
 }
 .btn:active{transform:scale(0.96);}
+
+/* Photos */
+.photos{
+    display:flex;
+    gap:15px;
+    margin-bottom:15px;
+}
+.photos img{
+    width:160px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+    animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:scale(0.9);}
+    to{opacity:1;transform:scale(1);}
+}
 </style>
 </head>
 
@@ -77,16 +95,22 @@ body{
     <button class="btn" onclick="showFinal()">One Last Surprise 🍫</button>
 </div>
 
-<!-- SCENE 3 -->
+<!-- SCENE 3 (FINAL) -->
 <div id="scene3" class="center hidden" style="background:rgba(0,0,0,0.65);">
-    <img src="her-photo.jpg" style="width:210px;border-radius:20px;margin-bottom:15px;">
+
+    <div class="photos">
+        <img src="her-photo.jpg" alt="Komal Photo 1">
+        <img src="her-photo2.jpg" alt="Komal Photo 2">
+    </div>
+
     <h2 class="font-love" style="font-size:42px;color:#ffb6c1;">
-        Happy Chocolate Day MY❤️
+        Happy Chocolate Day My Love ❤️
     </h2>
+
     <p style="font-size:18px;max-width:320px;">
-        Chocolate melts slowly,<br>
-        but my love for you grows endlessly 🍫💖<br><br>
-        You are my favourite sweetness, Komal.
+        Chocolate dheere dheere melt hoti hai 🍫<br>
+        Par tumhare liye mera pyaar har din badhta jata hai 💖<br><br>
+        Tum meri zindagi ki sabse sweet habit ho, Komal ❤️
     </p>
 </div>
 
@@ -101,9 +125,9 @@ setInterval(()=>{
     setTimeout(()=>c.remove(),6000);
 },650);
 
-/* Story */
+/* Story lines */
 const lines=[
-    "Chocolate sirf taste deta hai 🍫",
+    "Chocolate sirf taste deti hai 🍫",
     "Tum meri zindagi ko meaning deti ho ❤️",
     "Tumhari ek smile, meri favourite addiction hai 💖",
     "Aur tum… meri hamesha wali sweetness ho 😘"
