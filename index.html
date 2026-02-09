@@ -77,7 +77,9 @@ body{
 
 <body>
 
-<audio id="music" src="romantic.mp3" preload="auto"></audio>
+<!-- MUSIC -->
+<audio id="music1" src="romantic.mp3" preload="auto"></audio>
+<audio id="music2" src="romantic2.mp3" preload="auto"></audio>
 
 <!-- SCENE 1 -->
 <div id="scene1" class="center">
@@ -95,12 +97,12 @@ body{
     <button class="btn" onclick="showFinal()">One Last Surprise 🍫</button>
 </div>
 
-<!-- SCENE 3 (FINAL) -->
+<!-- SCENE 3 FINAL -->
 <div id="scene3" class="center hidden" style="background:rgba(0,0,0,0.65);">
 
     <div class="photos">
-        <img src="her-photo.jpg" alt="Komal Photo 1">
-        <img src="her-photo2.jpg" alt="Komal Photo 2">
+        <img src="her-photo.jpg">
+        <img src="her-photo2.jpg">
     </div>
 
     <h2 class="font-love" style="font-size:42px;color:#ffb6c1;">
@@ -110,6 +112,71 @@ body{
     <p style="font-size:18px;max-width:320px;">
         Chocolate dheere dheere melt hoti hai 🍫<br>
         Par tumhare liye mera pyaar har din badhta jata hai 💖<br><br>
+        Tum meri zindagi ki sabse sweet habit ho, Komal ❤️
+    </p>
+</div>
+
+<script>
+/* Floating chocolates */
+setInterval(()=>{
+    const c=document.createElement("div");
+    c.className="choco";
+    c.innerText="🍫";
+    c.style.left=Math.random()*100+"vw";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),6000);
+},650);
+
+/* Story */
+const lines=[
+    "Chocolate sirf taste deti hai 🍫",
+    "Tum meri zindagi ko meaning deti ho ❤️",
+    "Tumhari ek smile, meri favourite addiction hai 💖",
+    "Aur tum… meri hamesha wali sweetness ho 😘"
+];
+
+let i=0,j=0;
+
+function openBox(){
+    document.getElementById("scene1").classList.add("hidden");
+    document.getElementById("scene2").classList.remove("hidden");
+
+    const m1=document.getElementById("music1");
+    m1.volume=0.6;
+    m1.play();
+
+    typeText();
+}
+
+function typeText(){
+    if(i<lines.length){
+        if(j<lines[i].length){
+            document.getElementById("text").innerHTML+=lines[i][j];
+            j++;
+            setTimeout(typeText,50);
+        }else{
+            document.getElementById("text").innerHTML+="<br><br>";
+            i++; j=0;
+            setTimeout(typeText,600);
+        }
+    }
+}
+
+function showFinal(){
+    document.getElementById("scene2").classList.add("hidden");
+    document.getElementById("scene3").classList.remove("hidden");
+
+    const m1=document.getElementById("music1");
+    const m2=document.getElementById("music2");
+
+    m1.pause();
+    m2.volume=0.7;
+    m2.play();
+}
+</script>
+
+</body>
+</html>        Par tumhare liye mera pyaar har din badhta jata hai 💖<br><br>
         Tum meri zindagi ki sabse sweet habit ho, Komal ❤️
     </p>
 </div>
